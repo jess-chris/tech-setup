@@ -153,9 +153,185 @@ This specifies that your default Git branch should be the `main` branch.
 ***
 <br>
 
-# **5.** Installing NodeJS / Mocha:  
+# **5.** Installing NVM / NodeJS / Mocha:  
+
+Follow the instructions below for installing Node.js for your Mac or Windows environment:  
+
+### **NVM:**
+<br>
+
+**For all users copy the command below and paste it in either your Terminal (mac) or Ubuntu Terminal (windows):**  
+
+```
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+```
+
+Press enter, and you'll see a lot of information logged:  
+
+```
+ ... a lot of information logged
+
+=> Appending nvm source string to /home/your-user/.bashrc
+=> Appending bash_completion source string to /home/your-user/.bashrc
+=> Close and reopen your terminal to start using nvm or run the following to use it now:
+
+# ... this is the important part below
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+```
+
+Once the command has finished, close your terminal and re-open it for the changes to take effect.  
+
+### **NodeJS:**  
+<br>
+
+After you have re-opened your terminal enter the following command:  
+
+```
+nvm install 16
+```
+
+You should see something like this:
+
+```
+Downloading and installing node v16.14.0...
+Downloading https://nodejs.org/dist/v16.14.0/node-v16.14.0-darwin-arm64.tar.xz...
+######################################################################### 100.0%
+Computing checksum with shasum -a 256
+Checksums matched!
+Now using node v16.14.0 (npm v8.3.1)
+Creating default alias: default -> 16 (-> v16.14.0)
+```
+
+You'll see that Node has automatically installed the latest version of `16` for you.
+
+Once this is complete, you should be able to type:
+
+```
+node --version
+```
+
+and it should print out the correct version of Node.JS.
+
+You can verify that the Node.JS you installed is coming from your `nvm` setup, by using this shell command:
+
+```
+which node
+```
+
+If it prints out a path with `.nvm` in it, then you've done it correctly!
+
+```
+/home/<<your username>>/.nvm/versions/node/v16.14.0/bin/node
+```
+
+### **Mocha:**  
+<br>
+
+As a developer, testing your code before it reaches any sort of live environment is critical to ensuring that problems don't occur for end users.
+
+Unit tests are tests designed to test the smallest piece of code that can be logically isolated. This usually includes any functions, methods, and properties that you write to ensure that they behave in the way you intended.
+
+For now, you will not have to write your own tests, but you will have to run the tests written for you.
+
+To install Mocha, you will use the npm command.
+
+> *NOTE: DO NOT confuse npm with nvm. They are different tools. nvm controls the version of Node.JS you have installed, while npm is responsible for installing Node Packages which are third party pieces of software written in JavaScript.*
+
+To install mocha, enter the following command into your Terminal (mac) or Ubuntu terminal (windows):
+
+```
+npm install -g mocha
+```
+
+The `-g` is called a flag. This changes the behavior of the install command.
+
+In this case it means `global`. By default, `npm` will install files into your project directory. We want mocha to be installed for all projects, so we specify `-g`.
+
+You can verify mocha works by typing
+
+```
+mocha --version
+```
+
+If it prints out a version number, pat yourself on the back, you have successfully installed Node.JS and Mocha!
 
 ***
 <br>
 
-# **6.** Setting up SSH for Github:
+# **6.** Setting up SSH for Github:  
+
+### **Configuring GitHub Authentication**
+<br>
+
+Because GitHub allows you to share code with other developers, there needs to be a way to authenticate to make sure that you are authorized to access or contribute new code.
+
+Thankfully, git handles this authentication flow automatically. But for GitHub, there are several options for handling this authentication. These instructions will walk you through setting up authentication through SSH.
+
+To speed this process along, we have created a script to automate most of this for you!
+
+**To start, please run the following command in your Terminal (mac) or Ubuntu terminal (windows):**
+
+```
+curl -o- https://raw.githubusercontent.com/jess-chris/Mod1-scripts/main/ssh_only.sh | bash
+```
+
+After the command completes, you should see something like this:  
+
+```
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current                                                                          Dload  Upload   Total   Spent    Left  Speed                                           100  1045  100  1045    0     0   4662      0 --:--:-- --:--:-- --:--:--  4644                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                 # COPY THE ENTIRE LINE BELOW #                                                                             ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINqBDUBd9L5wn8r1MOAPq4JPg8DaeZOn2smVwCZHlU8Z user@DESKTOP-6LNRLSB                                                             
+```
+
+In this example the line you want to copy would be as following:  
+> ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINqBDUBd9L5wn8r1MOAPq4JPg8DaeZOn2smVwCZHlU8Z user@DESKTOP-6LNRLSB 
+
+**Once you have the line copied complete the following:**  
+  - Open Google Chrome (or any browser you use)
+  - Log into [GitHub](https://github.com/login) and navigate to your settings
+  - In your settings, navigate to `SSH and GPG keys`
+  - Click on the `New SSH key` button
+    - There will be 3 areas:
+    - Title - A name for your key (it can be anything)
+    - Key type - Keep as `Authentication Key`
+    - Key - This is where you will paste the line from the instructions above
+  - Once you have those fields filled out, click the `Add SSH key` button
+
+Once you have completed the above, you should have github authentication all set up!  
+
+### **Testing it out:**  
+<br>
+
+**Clone Module 1 resources:**
+  - Open Google Chrome (or any browser you use)
+  - Navigate to the [Module 1 resources repo](https://github.com/appacademy/Module-1-Resources)
+  - Click on the green `Code` button
+  - In the drop down make sure to select the `SSH` tab and copy the link
+  - Until you switch to a different authentication method you will always use the `SSH` links
+
+Go ahead and run the following command in your Terminal (mac) Ubuntu terminal (windows):  
+
+```
+git clone git@github.com:appacademy/Module-1-Resources.git
+```
+
+After running the above command you should see something like the following:  
+
+*If it's your first time cloning with this key, you might see something like this:*  
+
+```
+Cloning into 'Module-1-Resources'...                                                                                    The authenticity of host 'github.com (192.30.255.112)' can't be established.                                            ECDSA key fingerprint is SHA256:p2QAMXNIC1TJYWeIOttrVc98/R1BUFWu3/LiyKgUfQM.                                            Are you sure you want to continue connecting (yes/no)? 
+```
+
+If this is the case just type `yes` and hit enter.
+
+Otherwise you should see something like this if it was cloned correctly:  
+
+```
+Cloning into 'Module-1-Resources'...                                                                                    remote: Enumerating objects: 7933, done.                                                                                remote: Counting objects: 100% (73/73), done.                                                                           remote: Compressing objects: 100% (64/64), done.                                                                        remote: Total 7933 (delta 25), reused 55 (delta 9), pack-reused 7860                                                    Receiving objects: 100% (7933/7933), 7.64 MiB | 7.45 MiB/s, done.                                                       Resolving deltas: 100% (3443/3443), done. 
+```
+
+**If you managed to clone Module 1 Resources, then congratulations!**
+
+**You have completed tech setup!**
