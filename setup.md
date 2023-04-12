@@ -280,9 +280,11 @@ curl -o- https://raw.githubusercontent.com/jess-chris/Mod1-scripts/main/ssh_only
 After the command completes, you should see something like this:  
 
 ```
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current                                                                          Dload  Upload   Total   Spent    Left  Speed                                           100  1045  100  1045    0     0   4662      0 --:--:-- --:--:-- --:--:--  4644        
+% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current                                                                          
+                                  Dload  Upload   Total   Spent    Left  Speed                                           
+100  1045  100  1045    0     0   4662      0 --:--:-- --:--:-- --:--:--  4644        
   
-                                                                                    ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINqBDUBd9L5wn8r1MOAPq4JPg8DaeZOn2smVwCZHlU8Z user@DESKTOP-6LNRLSB                                                             
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINqBDUBd9L5wn8r1MOAPq4JPg8DaeZOn2smVwCZHlU8Z user@DESKTOP-6LNRLSB         
 ```
 
 In this example the line you want to copy would be as following:  
