@@ -324,7 +324,10 @@ After running the above command you should see something like the following:
 *If it's your first time cloning with this key, you might see something like this:*  
 
 ```
-Cloning into 'Module-1-Resources'...                                                                                    The authenticity of host 'github.com (192.30.255.112)' can't be established.                                            ECDSA key fingerprint is SHA256:p2QAMXNIC1TJYWeIOttrVc98/R1BUFWu3/LiyKgUfQM.                                            Are you sure you want to continue connecting (yes/no)? 
+Cloning into 'Module-1-Resources'...                   
+The authenticity of host 'github.com (192.30.255.112)' can't be established.                    
+ECDSA key fingerprint is SHA256:p2QAMXNIC1TJYWeIOttrVc98/R1BUFWu3/LiyKgUfQM.                                          
+Are you sure you want to continue connecting (yes/no)? 
 ```
 
 If this is the case just type `yes` and hit enter.
@@ -332,7 +335,13 @@ If this is the case just type `yes` and hit enter.
 Otherwise you should see something like this if it was cloned correctly:  
 
 ```
-Cloning into 'Module-1-Resources'...                                                                                    remote: Enumerating objects: 7933, done.                                                                                remote: Counting objects: 100% (73/73), done.                                                                           remote: Compressing objects: 100% (64/64), done.                                                                        remote: Total 7933 (delta 25), reused 55 (delta 9), pack-reused 7860                                                    Receiving objects: 100% (7933/7933), 7.64 MiB | 7.45 MiB/s, done.                                                       Resolving deltas: 100% (3443/3443), done. 
+Cloning into 'Module-1-Resources'...
+remote: Enumerating objects: 7933, done.
+remote: Counting objects: 100% (73/73), done.
+remote: Compressing objects: 100% (64/64), done.
+remote: Total 7933 (delta 25), reused 55 (delta 9), pack-reused 7860
+Receiving objects: 100% (7933/7933), 7.64 MiB | 7.45 MiB/s, done.
+Resolving deltas: 100% (3443/3443), done. 
 ```
 
 **If you managed to clone Module 1 Resources, then congratulations!**
